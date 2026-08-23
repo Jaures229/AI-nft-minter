@@ -4,10 +4,11 @@
   "description": "This project has a minimal setup of Hardhat 3, without any plugins.",
   "main": "page.js",
   "scripts": {
-    "start": "node app/page.js",
-    "build": "webpack",
     "dev": "next dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint",
+  "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

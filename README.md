@@ -60,25 +60,43 @@ To allow the app to upload generated images and metadata to IPFS, you need a fre
 * **Legacy Endpoints (Pinning):** Enable all pinning permissions (`pinFileToIPFS` / `pinJSONToIPFS`).
 
 
-5. Click **Create Key** and copy your `Pinata API Key`, `Pinata Secret API Key`, and/or `JWT`. *(Note: Save them securely as they won't be shown again).*
+5. Click **Create Key** and copy your `Pinata API Key` and `Pinata Secret API Key`.
 
 ### 3. Configure environment variables (`.env`)
 
 At the root of your project, create a file named **`.env`** and paste your Pinata keys:
 
 ```env
-PINATA_JWT="your_pinata_api_key_here"
+PINATA_JWT="your_pinata_JWT"
 
 ```
 
-### 4. Run the application in development mode
+### 4. Running the Application
 
+Depending on what you want to do, use the following commands:
+
+* **Development Mode** (with hot-reloading for editing code):
 ```bash
 npm run dev
 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to interact with the DApp.
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+* **Production Build** (to compile the app properly using Next.js):
+```bash
+npm run build
+
+```
+
+
+* **Production Server** (to run the compiled app locally):
+```bash
+npm run start
+
+```
+
+
 
 ---
 
