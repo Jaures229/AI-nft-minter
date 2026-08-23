@@ -1,7 +1,3 @@
-Voici le README mis à jour en anglais. La section dédiée à la configuration de Pinata intègre désormais explicitement les **permissions exactes (scopes)** nécessaires pour que l'application puisse uploader les images et les métadonnées sur l'IPFS sans erreur.
-
----
-
 # 🚀 NeoGen AI NFT Minter
 
 > A modern Web3 application with a neo-brutalist design that allows users to generate unique AI artwork, store metadata decentrally on IPFS (via Pinata), and mint them as NFTs (ERC-721) on the Ethereum blockchain (Sepolia).
