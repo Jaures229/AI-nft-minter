@@ -62,7 +62,7 @@ To allow the app to upload generated images and metadata to IPFS, you need a fre
 * **Legacy Endpoints (Pinning):** Enable all pinning permissions (`pinFileToIPFS` / `pinJSONToIPFS`).
 
 
-5. Click **Create Key** and copy your `Pinata API Key` and `Pinata Secret API Key`.
+5. Click **Create Key** and copy your `Pinata API JWT.
 
 ### 3. Configure environment variables (`.env`)
 
