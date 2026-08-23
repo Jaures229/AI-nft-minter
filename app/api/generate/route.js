@@ -10,7 +10,7 @@ export async function POST(request) {
 
     // Utilisation d'un générateur direct par URL (gratuit et sans clé API complexe)
     const encodedPrompt = encodeURIComponent(prompt);
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}`;
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?model=flux&width=1024&height=1024&nologo=true`;
 
     // On vérifie que l'image répond bien
     const imageRes = await fetch(imageUrl);

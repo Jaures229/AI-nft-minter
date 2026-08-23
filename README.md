@@ -1,7 +1,103 @@
-# Sample Hardhat 3 Project (minimal)
+Voici le README mis à jour en anglais. La section dédiée à la configuration de Pinata intègre désormais explicitement les **permissions exactes (scopes)** nécessaires pour que l'application puisse uploader les images et les métadonnées sur l'IPFS sans erreur.
 
-This project has a minimal setup of Hardhat 3, without any plugins.
+---
 
-## What's included?
+# 🚀 NeoGen AI NFT Minter
 
-The project includes native support for TypeScript, Hardhat scripts, tasks, and support for Solidity compilation and tests.
+> A modern Web3 application with a neo-brutalist design that allows users to generate unique AI artwork, store metadata decentrally on IPFS (via Pinata), and mint them as NFTs (ERC-721) on the Ethereum blockchain (Sepolia).
+
+---
+
+## 📜 Smart Contract Information
+
+The smart contract is already deployed and live on the **Sepolia Testnet**. You can check the code and transactions directly on Etherscan:
+
+* **Network:** Ethereum Sepolia Testnet
+* **Contract Address:** `0x65814b79C088aF2052C5D518e53D9655C8d89bE8`
+* **Etherscan Link:** [View on Sepolia Etherscan](https://www.google.com/search?q=https://sepolia.etherscan.io/address/0x65814b79C088aF2052C5D518e53D9655C8d89bE8)
+
+---
+
+## 🌟 Key Features
+
+* **AI Image Generation:** Instant creation of artistic images powered by Pollinations.ai (Flux model).
+* **Decentralized Storage:** Automatic upload of images and JSON metadata to IPFS using **Pinata**.
+* **ERC-721 Smart Contract:** Standard NFT implementation with owner tracking, metadata support, and royalties (ERC-2981).
+* **Connected Personal Gallery:** Automatic detection and display of all NFTs owned by the connected wallet.
+* **Blockchain Traceability:** Direct links to Etherscan for verifying individual tokens and sharing options on social media.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** Next.js (App Router), ReactJS, Tailwind CSS (Neo-brutalist UI).
+* **Web3:** Ethers.js, MetaMask.
+* **Storage:** IPFS via Pinata API.
+* **AI:** Pollinations.ai.
+
+---
+
+## 📦 Setup and Configuration Guide
+
+To run this application locally and connect it to the deployed contract, follow these steps:
+
+### 1. Clone the repository and install dependencies
+
+Open your terminal and run:
+
+```bash
+git clone <your-repository-url>
+cd AI-nft-minter
+npm install
+
+```
+
+### 2. Configure Pinata API Keys & Permissions
+
+To allow the app to upload generated images and metadata to IPFS, you need a free Pinata account.
+
+1. Go to your [Pinata API Keys Dashboard](https://app.pinata.cloud/developers/api-keys).
+2. Click on **"New Key"**.
+3. Give your key a name (e.g., `NeoGen Minter`).
+4. **Configure the required permissions (Scopes):**
+* **V3 Resources / Files:** Select `Write` (this allows uploading images and JSON metadata files).
+* **Legacy Endpoints (Pinning):** Enable all pinning permissions (`pinFileToIPFS` / `pinJSONToIPFS`).
+
+
+5. Click **Create Key** and copy your `Pinata API Key`, `Pinata Secret API Key`, and/or `JWT`. *(Note: Save them securely as they won't be shown again).*
+
+### 3. Configure environment variables (`.env`)
+
+At the root of your project, create a file named **`.env`** and paste your Pinata keys:
+
+```env
+PINATA_JWT="your_pinata_api_key_here"
+
+```
+
+### 4. Run the application in development mode
+
+```bash
+npm run dev
+
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to interact with the DApp.
+
+---
+
+## 🎮 How to Use
+
+1. **Connect Wallet:** Click the connect button to link your MetaMask wallet. Make sure your wallet is switched to the **Sepolia Testnet** and that you have a little Sepolia ETH for gas fees (available via free faucets).
+2. **Generate Image:** Type a description (prompt) of your choice, pick an art style, and click **Generate**.
+3. **Mint NFT:** Fill in a name and description for your creation, then click the **Mint** button.
+* *Behind the scenes:* The app packages your image, pushes it to IPFS via Pinata using your scoped permissions, retrieves the token URI, and triggers MetaMask to sign the transaction.
+
+
+4. **Explore:** View your generated creations in your personal gallery at the bottom of the page and click **EXPLORER** to check your token on Etherscan!
+
+---
+
+## 📄 License
+
+This project is open-source and free to use for educational and demonstration purposes.

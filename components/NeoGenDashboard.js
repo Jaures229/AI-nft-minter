@@ -4,45 +4,6 @@ import { useState } from "react";
 
 const ART_STYLES = ["ANIME", "CYBERPUNK", "3D RENDER"];
 
-const TRENDING_COLLECTIONS = [
-  {
-    name: "VOID WALKERS",
-    volume: "4.2k ETH",
-    change: "+12%",
-    changeClass: "text-secondary-fixed-dim bg-on-background",
-    cardBg: "bg-surface-container-lowest",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBDqhEem0Y1l9BChuCUfe9cgh-qGVi2kdjLSsoqh1scC8zF65neWnH_t5FkkWmnd_FBqUik_DPE0vqMpxc8DOPVYWJIRxhVG2IgZYtWSF6Opo6u3_5KkKY2kec8yxItJl8vjkTe7scdwbrz7HY82Hz1Uz9rIyvnsU-0vrwOrK8a8BxGWfIF0oPNLGycqP7Y4OlAFV9tZeTloEuoe_M4MVyoVkDWz2PK7GovcqtMIFy2efWuUAGuhUP4_A",
-  },
-  {
-    name: "NEO-PETS",
-    volume: "2.1k ETH",
-    change: "+5%",
-    changeClass: "bg-on-background text-secondary-fixed",
-    cardBg: "bg-secondary-fixed",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAyYLwZSbrq96-p1N_Hp7DC4r0Zt83Qsn-UsBwwka_eiCilSK09o_h6mGleUuoELTmvpMYgy1wWb3xkbjO5Rwv79z7da9o-3Yfhux3DQ28v9ylCBDA4NyJyNM7fP8w-47GHzste3SddkXpCdMffWASZKsEQfcsUItSIWErIXxpRvBmmmg79eB7cqwOJnS_l6u4EWY6StM0MHG5CNNhOyKH5-ds0_tn_nVMwhas3BWphg2jNv0d_yMgbUg",
-  },
-  {
-    name: "SYNTAX ERRORS",
-    volume: "8.9k ETH",
-    change: "+42%",
-    changeClass: "text-secondary-fixed-dim bg-on-background",
-    cardBg: "bg-surface-container-lowest",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBdvyAb_cUGa9isAg9bse3j2pt8EQf11Haru_yjjBoa6oB-0MJwvY2AiyPGopfcayQ_lx_i3znnDI27e-lZ97NPOpdFt3WngDDGjt0nhX4Nt4zKn6xrHBpmy_Bn6e_GYlHU-EaGhsRTuVcq6fdIJ3D_5DOYtjolXR_yXTz_EQhX3dr_hd6jaA89Ns66_Z2PBFE9rq5Cfw7xMF7DgoCS8frE0aRsbe_LocVCFdyal3VBC1CfrL-Hhw9aKw",
-  },
-  {
-    name: "DATA MONOLITHS",
-    volume: "1.2k ETH",
-    change: "-2%",
-    changeClass: "text-error bg-on-background",
-    cardBg: "bg-surface-container-lowest",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDo_MhD1fYMZA39FGMXMe96WhlJ2P4sKnNUuZMoxiKsJv_H0C3phgoU-nwwNGW_1qaE-1uf_gFMB7p6HGetfWN8gC6dLEqz7hWng5AnoYBrNQsY8_akfOqYIC6buiERTD4Z5mrrdB7c29sIQNT6G_aZSQ0z7feQw9JFtDkqeiIPT3-Re6QPUicbT924rMF1jW_TnjXroohX9SgF_mO0yfFcRnP_LwTZTEcTMMHmDjdTYB6fnXtRAjhbgA",
-  },
-];
-
 const DEFAULT_PREVIEW =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCH_aYe7z8OTd1LIQMcwRxAl32y3D3GH0dc46AFKYalphit6131ahkl47Hm5rmn_95L7XzOcIIlhGC4tvbIgnuvFREdbjLjLcRxuQ6K2eZw90bXVC-bHU_y4kRa3f5Chu8kKag-_TJEDvsKK1_YLQPVwdV0A5rddOKuYoB968wN4NfJBXLc_-9qzBWVSNpRRBTlTY4lE6FEozID-8XFToQFSpZyNkQU-3mezZDCBv9FH0uuSBxR31k_BA";
 
@@ -257,47 +218,81 @@ export default function NeoGenDashboard({
         </section>
       </main>
 
-    {/* My NFT Gallery Section */}
-    {account && (
-    <section className="flex flex-col gap-8 mt-12">
-        <h2 className="font-headline-lg text-headline-lg text-surface-container-lowest uppercase border-b-4 border-surface-container-lowest pb-4">
-        MY GENERATED NFTS ({userNfts.length})
-        </h2>
-        {userNfts.length === 0 ? (
-        <div className="bg-surface-container-lowest border-4 border-on-background p-6 font-data-mono text-center neo-shadow">
-            Aucun NFT trouvé pour ce portefeuille. Générez et minté votre premier NFT ci-dessus !
-        </div>
-        ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8">
-            {userNfts.map((nft, index) => (
-            <div
-                key={index}
-                className="bg-surface-container-lowest border-4 border-on-background neo-shadow flex flex-col"
-            >
-                <div className="h-48 border-b-4 border-on-background overflow-hidden">
-                <img
-                    src={nft.image}
-                    alt={nft.name}
-                    className="w-full h-full object-cover"
-                />
-                </div>
-                <div className="p-4 flex flex-col gap-2 bg-surface-container-lowest">
-                <h3 className="font-headline-md text-headline-md truncate">
-                    {nft.name}
-                </h3>
-                <p className="font-data-mono text-xs text-on-surface truncate">
-                    {nft.description}
-                </p>
-                <span className="font-data-mono text-xs font-bold text-primary-container mt-2">
-                    Token ID: #{nft.tokenId}
-                </span>
-                </div>
-            </div>
-            ))}
-        </div>
+      {/* My NFT Gallery Section */}
+      {account && (
+          <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col gap-6 md:gap-8 mt-12">
+            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-surface-container-lowest uppercase border-b-4 border-surface-container-lowest pb-4">
+              MY GENERATED NFTS ({userNfts.length})
+            </h2>
+            
+            {userNfts.length === 0 ? (
+              <div className="bg-surface-container-lowest border-4 border-on-background p-6 font-data-mono text-center neo-shadow mb-8 mx-2">
+                Aucun NFT trouvé pour ce portefeuille. Générez et mintez votre premier NFT ci-dessus !
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 pb-12 pr-4 w-full">
+                {/* pr-4 (padding-right) empêche l'ombre neo-brutaliste (8px) de déborder de l'écran sur mobile */}
+                {userNfts.map((nft, index) => {
+                  const contractAddress = "0x65814b79C088aF2052C5D518e53D9655C8d89bE8";
+                  
+                  // URL vers Rarible Testnet
+                  // Remplacez l'URL Rarible par l'URL Sepolia Etherscan (page du token spécifique)
+                  const explorerUrl = `https://sepolia.etherscan.io/token/${contractAddress}?a=${nft.tokenId}`;
+                  
+                  // Texte de partage avec le lien Rarible
+                  const shareText = encodeURIComponent(`Je viens de générer et minter "${nft.name}" sur la blockchain avec NeoGen AI ! 🎨✨\n\nRegardez mon NFT ici : ${explorerUrl}\n\n#Web3 #AINFT #NeoGen`);
+                  const twitterUrl = `https://twitter.com/intent/tweet?text=${shareText}`;
+
+                  return (
+                    <div
+                      key={index}
+                      className="bg-surface-container-lowest border-4 border-on-background neo-shadow flex flex-col"
+                    >
+                      <div className="h-48 md:h-56 border-b-4 border-on-background overflow-hidden relative group">
+                        <img
+                          src={nft.image}
+                          alt={nft.name}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute top-2 right-2 bg-on-background text-surface-container-lowest font-data-mono text-xs px-2 py-1 font-bold">
+                          #{nft.tokenId}
+                        </div>
+                      </div>
+                      
+                      <div className="p-4 flex flex-col gap-2 bg-surface-container-lowest flex-grow">
+                        <h3 className="font-headline-md text-lg md:text-xl truncate" title={nft.name}>
+                          {nft.name}
+                        </h3>
+                        <p className="font-data-mono text-xs text-on-surface line-clamp-2" title={nft.description}>
+                          {nft.description}
+                        </p>
+                      </div>
+
+                      <div className="p-4 border-t-4 border-on-background bg-surface-container flex flex-col xl:flex-row gap-2">
+                        <a
+                          href={explorerUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 bg-primary text-on-primary border-2 border-on-background text-center py-2 font-data-mono text-xs font-bold hover:bg-on-background hover:text-primary transition-colors whitespace-nowrap"
+                        >
+                          🔍 EXPLORER
+                        </a>
+                        <a
+                          href={twitterUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 bg-secondary text-on-secondary border-2 border-on-background text-center py-2 font-data-mono text-xs font-bold hover:bg-on-background hover:text-secondary transition-colors whitespace-nowrap"
+                        >
+                          🐦 SHARE
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </section>
         )}
-    </section>
-    )}
 
       <footer className="w-full py-12 px-margin flex flex-col md:flex-row justify-between items-center gap-8 mt-24 bg-on-background border-t-4 border-on-background">
         <span className="font-headline-md text-secondary">NEO-GEN AI</span>
@@ -328,7 +323,7 @@ export default function NeoGenDashboard({
           </a>
         </div>
         <span className="font-body-md text-body-md text-secondary">
-          ©2024 NEO-GEN PROTOCOL. NO RIGHTS RESERVED.
+          ©2026 NEO-GEN PROTOCOL. NO RIGHTS RESERVED.
         </span>
       </footer>
     </div>
