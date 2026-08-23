@@ -2,6 +2,8 @@
 
 > A modern Web3 application with a neo-brutalist design that allows users to generate unique AI artwork, store metadata decentrally on IPFS (via Pinata), and mint them as NFTs (ERC-721) on the Ethereum blockchain (Sepolia).
 
+![NeoGen Preview](/public/screenshot.png)
+
 ---
 
 ## 📜 Smart Contract Information
@@ -114,4 +116,6 @@ npm run start
 
 ## 📄 License
 
-This project is open-source and free to use for educational and demonstration purposes.
+This project is under the MIT-LICENCE
+
+
