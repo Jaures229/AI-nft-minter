@@ -10,7 +10,7 @@ The smart contract is already deployed and live on the **Sepolia Testnet**. You 
 
 * **Network:** Ethereum Sepolia Testnet
 * **Contract Address:** `0x65814b79C088aF2052C5D518e53D9655C8d89bE8`
-* **Etherscan Link:** [View on Sepolia Etherscan](https://www.google.com/search?q=https://sepolia.etherscan.io/address/0x65814b79C088aF2052C5D518e53D9655C8d89bE8)
+* **Etherscan Link:** [View on Sepolia Etherscan](https://sepolia.etherscan.io/address/0x65814b79C088aF2052C5D518e53D9655C8d89bE8)
 
 ---
 
