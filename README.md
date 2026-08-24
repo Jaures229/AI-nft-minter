@@ -44,7 +44,7 @@ To run this application locally and connect it to the deployed contract, follow 
 Open your terminal and run:
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Jaures229/AI-nft-minter.git
 cd AI-nft-minter
 npm install
 
